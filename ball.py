@@ -7,18 +7,18 @@ class Ball():
         self.ball.shape("circle")
         self.ball.color("Purple")
         self.ball.shapesize(.75)
-        self.angle = -90
+        self.x = 3
+        self.y = -3
 
     def move(self):
-        self.ball.setheading(self.angle)
-        self.ball.forward(5)
+        x = self.ball.xcor() + self.x
+        y = self.ball.ycor() + self.y
+        self.ball.setx(x)
+        self.ball.sety(y)
 
-    def bounce(self):
-        if self.angle == 0:
-            self.angle = 180
-        elif self.angle == 180:
-            self.angle = 0
-        else:
-            self.angle *= -1
-        self.ball.setheading(self.angle)
-        self.ball.forward(5)
+    def bounce_x(self):
+        self.x *= -1
+
+    def bounce_y(self):
+        self.y *= -1
+        

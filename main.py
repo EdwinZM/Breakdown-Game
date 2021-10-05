@@ -1,12 +1,14 @@
 import turtle 
 from paddle import Paddle
 from ball import Ball
+from bricks import Bricks
 
 turtle.bgcolor("black")
 turtle.tracer(False)
 
 paddle = Paddle()
 ball = Ball()
+bricks = Bricks()
 
 turtle.listen()
 
@@ -20,13 +22,17 @@ is_on = True
 while is_on:
     ball.move()
 
-    if ball.ball.ycor() == paddle.paddle.ycor() + 15 and (ball.ball.xcor() >= paddle.paddle.xcor() - 60 and ball.ball.xcor() <= paddle.paddle.xcor() + 70):
-        ball.bounce()
-    elif ball.ball.ycor() == 300 or ball.ball.xcor() == -300 or ball.ball.xcor() == 300:
-        ball.bounce()
+    if round(ball.ball.ycor()) == round(paddle.paddle.ycor()) + 15 and (round(ball.ball.xcor()) >= round(paddle.paddle.xcor()) - 60 and round(ball.ball.xcor()) <= round(paddle.paddle.xcor()) + 70):
+        ball.bounce_y()
+        
+    elif ball.ball.ycor() == 300:
+        ball.bounce_y()
+    elif ball.ball.xcor() == -300 or ball.ball.xcor() == 300:
+        ball.bounce_x()
     elif ball.ball.ycor() < -300:
         ball.ball.setx(0)
-        ball.ball.sety(0)           
+        ball.ball.sety(0)
+          
 
     turtle.update()
 
