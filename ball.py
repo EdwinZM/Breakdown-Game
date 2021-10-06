@@ -7,7 +7,7 @@ class Ball():
         self.ball.shape("circle")
         self.ball.color("Purple")
         self.ball.shapesize(.75)
-        self.x = 3
+        self.x = 1.5
         self.y = -3
 
     def move(self):

@@ -13,8 +13,6 @@ bricks = Bricks()
 
 turtle.update()
 
-time.sleep(3)
-
 turtle.listen()
 
 turtle.onkey(paddle.left, "Left")
