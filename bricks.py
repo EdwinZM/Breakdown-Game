@@ -12,10 +12,11 @@ class Bricks():
         brick = Turtle()
         brick.penup()
         brick.shape("square")
-        brick.color("white")
+        brick.color("green")
         brick.shapesize(stretch_len=4, stretch_wid=1)
         brick.setx(self.x)
         brick.sety(self.y)
+
         return brick
 
     def set_bricks(self):
@@ -30,6 +31,23 @@ class Bricks():
 
         self.x = -280
         self.y -= 30
+
+        return  brick_lane
+
+    def for_bricks(self, array, brick):
+        for item in array:
+            if item == brick:
+                brick.hideturtle()
+                brick.clear()
+                array.remove(brick)
+    
+    def hit(self, brick):
+
+        self.for_bricks(self.bricks1, brick)
+        self.for_bricks(self.bricks2, brick)
+        self.for_bricks(self.bricks3, brick)
+    
+
                 
 
 
